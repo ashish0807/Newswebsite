@@ -1,38 +1,34 @@
-import {useState, useEffect } from "react";
-import axios from 'axios'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
+import Navbar from "./components/Navbar";
+import Home from "./components/Home"
+import Head from './components/Head';
+import Footer from './components/Footer';
+import Mypage from './Pages/Mypage';
+
+
 function App() {
-  const [news,setNews] = useState([])
-  useEffect(()=>{
-    axios.get("https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1635948001be4baabdc412fdd6c983ff")
-    .then((res)=>{
-      console.log(res.data.articles);
-      setNews(res.data.articles)
-    })
-  },[])
+  
   return (
     <>
-      <div className="container my-5">
-        <div className="row text-center">
-          {
-            news.map((val)=>{
-              return (
-                <div className="col my-3">
-                  <div className="card" style={{width: "18rem"}}>
-                    <img src={val.urlToImage} className="card-img-top" alt="..."></img>
-                      <div className="card-body">
-                        <h5 className="card-title">{val.title}</h5>
-                        <p className="card-text">{val.description}</p>
-                        <a href={val.url} className="btn btn-primary">View Detail</a>
-                      </div>
-                  </div>
-               </div>
-              )
-            })
-          }
-        </div>
-      </div>
+    <Router>
+    <Navbar/> 
+    <Routes>
+      <Route exact path='/' element={<Home/>} />
+      <Route exact path="/sports" element={<Mypage cat="sports"/>}/>
+      <Route exact path="/education" element={<Mypage cat="education"/>}/>
+      <Route exact path="/entertainment" element={<Mypage cat="entertainment"/>}/>
+      <Route exact path="/business" element={<Mypage cat="business"/>}/>
+      <Route exact path="/technology" element={<Mypage cat="technology"/>}/>
+      <Route exact path="/health" element={<Mypage cat="health"/>}/>
+      
+    </Routes>
+    </Router>
+    <Footer/>
     </>
-  )
+    )
+      
 } 
 
 export default App
