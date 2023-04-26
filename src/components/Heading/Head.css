@@ -1,0 +1,15 @@
+  .searchbar{
+    height:45px;
+    width: 600px;
+    border:none;
+    border-radius: 50px;
+  }
+
+  .searchbar:hover{
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
+  }
+
+  .searchbar:focus-within{
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
+    outline:none;
+  }

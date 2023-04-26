@@ -1,14 +1,14 @@
   import { useState, useEffect } from "react";
   import axios from 'axios';
-  import Head from "./Head";
+  import Head from "./Heading/Head";
   
-  function Home() {
+  function Home(props) {
     const [news, setNews] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-  
+    
     useEffect(() => {
-      axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1635948001be4baabdc412fdd6c983ff&page=${currentPage}`)
+      axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=1635948001be4baabdc412fdd6c983ff&page=${currentPage}`)
         .then((res) => {
           console.log(res.data.articles);
           setNews(res.data.articles);
@@ -26,7 +26,7 @@
   
     return (
       <>
-        <div><Head /></div>
+        <div><Head/></div>
         <div className="container my-4 fw-bold">
           <h3><u>TOP HEADLINES</u></h3>
         </div>

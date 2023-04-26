@@ -1,13 +1,14 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 
+
 const Navbar = () => {  
 return (
      <nav className="navbar navbar-expand-lg bg-dark">
           <div className="container-fluid">
-          <a to="/" class="navbar-brand">
-                <img src="\newswebsite\src\components\logo.jpg" height="28" alt="logo"/>
-            </a>
+          {/* <a to="/" className="navbar-brand">
+                <img src="/components\logo.jpg" height="28" alt="NewsP"/>
+            </a> */}
              <Link className="navbar-brand text-white fw-bold " to="">NEWS Point</Link>
              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
              <span className="navbar-toggler-icon"></span>
